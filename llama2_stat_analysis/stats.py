@@ -1,10 +1,13 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
+#Loading the csv file
 def load_csv(file_path):
     data = pd.read_csv(file_path)
     return data
 
+# encoding the object type data into integers
+#As this is required for building graphs 
 def encode_data(data):
     label_encoders = {}
     for column in data.columns:
@@ -14,6 +17,7 @@ def encode_data(data):
             label_encoders[column] = le
     return data, label_encoders
 
+# calculating some basic statistics for both the encoded and original data
 def basic_statistics(data, encoders):
     stats = {
         'mean': data.mean(),
@@ -23,7 +27,6 @@ def basic_statistics(data, encoders):
         'correlation': data.corr()
     }
 
-    # Map encoded values to real object values
     decoded_stats = {}
     for col in stats:
         if col in encoders:
@@ -36,8 +39,4 @@ def basic_statistics(data, encoders):
 
     return decoded_stats
 
-# Example usage:
-# data = load_csv('data/sample.csv')
-# encoded_data, encoders = encode_data(data)
-# stats = basic_statistics(encoded_data, encoders)
-# print(stats)
+
