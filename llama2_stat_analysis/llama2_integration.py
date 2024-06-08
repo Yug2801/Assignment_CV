@@ -1,7 +1,5 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# Decorator for caching the loaded model to improve performance
-@st.cache(allow_output_mutation=True)
 def load_llama_model(model_name="distilgpt2"):
     try:
         # Loading the tokenizer and model
