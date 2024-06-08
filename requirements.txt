@@ -1,8 +1,9 @@
-pandas
-numpy
-matplotlib
-seaborn
-transformers
 streamlit
+pandas
+seaborn
+matplotlib
 scikit-learn
+transformers
+torch
+numpy
 plotly
